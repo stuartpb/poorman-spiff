@@ -155,23 +155,24 @@
     <script>
       /* global poorman_spiff */
       function makeOutput() {
-        if(document.getElementById('instring').value){
-          try {
-            var font = JSON.parse(document.getElementById('fontjson').value);
-          } catch(err) {
-            document.getElementById('outscad').value = 'Font JSON syntax error: '
-              + err.message;
-            document.getElementById('outscad').className = 'error';
-          }
-          if (font){
+        var font;
+        try {
+          font = JSON.parse(document.getElementById('fontjson').value);
+        } catch(err) {
+          document.getElementById('outscad').value = 'Font JSON syntax error: '
+            + err.message;
+          document.getElementById('outscad').className = 'error';
+        }
+        if (font) {
+          if(document.getElementById('instring').value) {
             document.getElementById('outscad').value = poorman_spiff(
               document.getElementById('instring').value, font,
               document.getElementById('fontname').value,
               parseFloat(document.getElementById('spacing').value));
             document.getElementById('outscad').className = '';
+          } else {
+            document.getElementById('outscad').value = '';
           }
-        } else {
-          document.getElementById('outscad').value = '';
         }
       }
     </script>
