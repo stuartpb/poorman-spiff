@@ -13,7 +13,7 @@ function poorman_spiff(str,font,name,spacing){
     chari = glyphimap[str[i]] || 0;
     glyph = font[chari];
     if (glyph[2]) {
-      lines[lines.length] = 'transform(' + left + ',0,0) '
+      lines[lines.length] = 'translate([' + left + ',0,0]) '
         + 'polygon(points='
         + (name ? name + '[' + chari + '][2][0]' : JSON.stringify(glyph[2][0]))
         + ',paths='
