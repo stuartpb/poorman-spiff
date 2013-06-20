@@ -18,7 +18,8 @@ function poorman_spiff(str,font,name,spacing){
         + (name ? name + '[' + chari + '][2][0]' : JSON.stringify(glyph[2][0]))
         + ',paths='
         + (name ? name + '[' + chari + '][2][1]' : JSON.stringify(glyph[2][1]))
-        + '); // ' + JSON.stringify(str[i]);
+        + '); // ' + JSON.stringify(str[i])
+        + (glyphimap[str[i]] === undefined ? ' (fallback)' : '');
     } else {
       lines[lines.length] = '// ' + JSON.stringify(str[i]);
     }
